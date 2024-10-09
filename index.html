@@ -3,17 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petuxa aid web sitesi</title>
+    <title>Petux qalareyası</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>This is PETUX</h1>
-    <div class="image-gallery">
-        <img src="./images/WhatsApp%20Image%202024-10-09%20at%2022.10.43_0c315f76.jpg" alt="Image 1" />
-        <img src="./images/WhatsApp%20Image%202024-10-09%20at%2022.10.43_aad573c3.jpg" alt="Image 2" />
-        <img src="./images/WhatsApp%20Image%202024-10-09%20at%2022.10.44_1da18b3f.jpg" alt="Image 3" />
-        <img src="./images/WhatsApp%20Image%202024-10-09%20at%2022.10.44_9acbe5b1.jpg" alt="Image 4" />
-        <img src="./images/WhatsApp%20Image%202024-10-09%20at%2022.10.46_7f0a06cb.jpg" alt="Image 5" />
+    <h1>Petux qalareyası</h1>
+    <div id="intro">
+        <p>Petux görmək istəyirsən?</p>
+        <button id="yesButton">Hə</button>
     </div>
+    <div class="image-gallery" id="imageGallery">
+        <img src="images/photo1.jpg" alt="Photo 1">
+        <img src="images/photo2.jpg" alt="Photo 2">
+        <img src="images/photo3.jpg" alt="Photo 3">
+        <img src="images/photo4.jpg" alt="Photo 4">
+        <img src="images/photo5.jpg" alt="Photo 5">
+    </div>
+
+    <script>
+        document.getElementById("yesButton").addEventListener("click", function() {
+            document.getElementById("intro").classList.add("fade-out");
+            setTimeout(function() {
+                document.getElementById("intro").style.display = "none"; // Hide the intro text
+                document.getElementById("imageGallery").classList.add("fade-in"); // Add fade-in class
+            }, 500); // Wait for fade-out to finish before hiding
+        });
+    </script>
 </body>
 </html>
