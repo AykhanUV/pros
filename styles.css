@@ -8,12 +8,10 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    overflow: hidden; 
-    position: relative; 
-    height: 100vh; 
-    animation: gradientAnimation 15s ease infinite; 
-    background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* Darker gradient for comfort */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d); 
     background-size: 400% 400%; 
+    animation: gradientAnimation 15s ease infinite; 
 }
 
 @keyframes gradientAnimation {
