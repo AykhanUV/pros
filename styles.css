@@ -1,38 +1,73 @@
-/* Dark Mode Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text */
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-/* Style for the heading */
 h1 {
     margin-top: 20px;
     color: #ffffff;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Image Gallery Styling */
 .image-gallery {
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Makes the images responsive */
-    gap: 20px; /* Adds space between images */
-    max-width: 1000px; /* Limits the gallery width */
-    margin: 40px auto; /* Centers the gallery */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 0 20px;
+    position: relative;
 }
 
-/* Image Styling */
 .image-gallery img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds shadow to the images */
-    transition: transform 0.2s ease-in-out;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
 }
 
 .image-gallery img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+.image-gallery img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.image-gallery img:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
 }
